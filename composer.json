@@ -6,7 +6,7 @@
         "magento\/product-community-edition": "~2.0.0"
     },
     "type": "magento2-module",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "license": [
         "commercial"
     ],

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\SalesRule\Model\Rule\Action\Discount\CalculatorFactory">
+        <arguments>
+            <argument name="discountRules" xsi:type="array">
+                <item name="buy_x_for_y" xsi:type="string">Zero1\BuyXForY\Model\Rule\Action\Discount\BuyXForY</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

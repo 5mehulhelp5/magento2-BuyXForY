@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_block_salesrule_actions_prepareform">
+        <observer name="zero1_buy_x_for_y" instance="Zero1\BuyXForY\Model\Observer\SalesRuleActionsPrepareForm" />
+    </event>
+</config>
