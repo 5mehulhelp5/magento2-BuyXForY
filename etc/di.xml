@@ -7,4 +7,8 @@
             </argument>
         </arguments>
     </type>
+
+    <type name="Magento\SalesRule\Model\Rule\Metadata\ValueProvider">
+        <plugin name="zero1_buyxfory::getMetadataValuesAfter" type="Zero1\BuyXForY\Plugin\Magento\SalesRule\Model\Rule\Metadata\ValueProvider\GetMetadataValuesAfter" />
+    </type>
 </config>

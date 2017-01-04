@@ -12,16 +12,17 @@ class SalesRuleActionsPrepareForm implements ObserverInterface
 	 */
 	public function execute(Observer $observer)
 	{
-		/** @var \Magento\Framework\Data\Form $form */
-		$form = $observer->getEvent()->getForm();
-		/** @var \Magento\Framework\Data\Form\Element\Select $simpleActionElement */
-		$simpleActionElement = $form->getElement('simple_action');
-
-		$values = $simpleActionElement->getValues();
-		$values[] = array(
-			'value' => Rule::BUY_X_FOR_Y,
-			'label' => __('Buy X For Y'),
-		);
-		$simpleActionElement->setValues($values);
+        // This no longer works, as of 2.1.2 #M2
+//		/** @var \Magento\Framework\Data\Form $form */
+//		$form = $observer->getEvent()->getForm();
+//		/** @var \Magento\Framework\Data\Form\Element\Select $simpleActionElement */
+//		$simpleActionElement = $form->getElement('simple_action');
+//
+//		$values = $simpleActionElement->getValues();
+//		$values[] = array(
+//			'value' => Rule::BUY_X_FOR_Y,
+//			'label' => __('Buy X For Y'),
+//		);
+//		$simpleActionElement->setValues($values);
 	}
 }
