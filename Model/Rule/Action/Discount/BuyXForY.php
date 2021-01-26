@@ -37,11 +37,6 @@ class BuyXForY extends AbstractDiscount
         if ($rule->getDiscountStep() <= 0 || $rule->getDiscountQty() < 0) {
             return $discountData;
         }
-
-
-        file_put_contents('/home/magento/htdocs/var/log/rules.log', "getDiscountStep=".$rule->getDiscountStep().PHP_EOL, FILE_APPEND);
-
-
         //get all items relevant to this rule
         /** @var Quote $quote */
         $quote = $item->getQuote();
