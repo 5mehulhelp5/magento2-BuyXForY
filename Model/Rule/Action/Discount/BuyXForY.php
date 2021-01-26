@@ -38,6 +38,10 @@ class BuyXForY extends AbstractDiscount
             return $discountData;
         }
 
+
+        file_put_contents('/home/magento/htdocs/var/log/rules.log', "getDiscountStep=".$rule->getDiscountStep().PHP_EOL, FILE_APPEND);
+
+
         //get all items relevant to this rule
         /** @var Quote $quote */
         $quote = $item->getQuote();
@@ -82,11 +86,16 @@ class BuyXForY extends AbstractDiscount
         $targetBasePrice = $rule->getDiscountAmount();
 
         $discountGroups = array_chunk($itemList, floor($rule->getDiscountStep()));
-        $totalDiscountGroups = count($discountGroups);
+        $totalDiscountGroups = count($discountGroups);       
         $maxDiscountApplications = min($totalDiscountGroups, ($rule->getDiscountQty() == 0) ? $totalDiscountGroups : $rule->getDiscountQty());
 
         for ($x = 0; $x < $maxDiscountApplications; $x++) {
             $discountGroup = $discountGroups[$x];
+
+            if(count($discountGroup) < $rule->getDiscountStep()) {
+                //file_put_contents('/home/magento/htdocs/var/log/rules.log', "Exiting step =".$x.PHP_EOL, FILE_APPEND);
+                continue;
+            }
             $totalGroupPrice = 0;
             $totalBaseGroupPrice = 0;
 
@@ -135,8 +144,6 @@ class BuyXForY extends AbstractDiscount
         if (isset($skuDiscounts[$item->getProduct()->getSku()])) {
             $discountData->setAmount($skuDiscounts[$item->getProduct()->getSku()]['discount']);
             $discountData->setBaseAmount($skuDiscounts[$item->getProduct()->getSku()]['base_discount']);
-//            $discountData->setOriginalAmount($discountQty * $this->validator->getItemOriginalPrice($item) * ($discountPercent / 100));
-//            $discountData->setBaseOriginalAmount($discountQty * $this->validator->getItemBaseOriginalPrice($item) * ($discountPercent / 100));
         }
 
         return $discountData;
