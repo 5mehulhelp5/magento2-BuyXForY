@@ -1,0 +1,8 @@
+name: Check Description
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Foo
+        run: |
+          echo "yeah?"
