@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
   workflow_call:
   push:
-    branches: [ "master", "main" ]
+    branches: [ "master" ] 
   pull_request:
-    branches: [ "master", "main" ]
+    branches: [ "master" ]
 
 permissions:
   contents: read
