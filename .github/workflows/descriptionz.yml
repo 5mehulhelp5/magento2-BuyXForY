@@ -42,7 +42,7 @@ jobs:
           exit 1
 
   validate-php-dependency-composer-json:
-    name: "Validate magento/framework in composer.json"
+    name: "Validate php dependency in composer.json"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -78,6 +78,7 @@ jobs:
       - validate-composer-json
       - validate-description-composer-json
       - validate-magento-dependency-composer-json
+      - validate-php-dependency-composer-json
       - phpstan
       - phpcs
     steps:
