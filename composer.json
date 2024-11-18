@@ -15,10 +15,5 @@
         "psr-4": {
             "Zero1\\BuyXForY\\": ""
         }
-    },
-    "archive": {
-        "exclude": [
-            ".github"
-        ]
     }
 }
