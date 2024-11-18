@@ -12,5 +12,7 @@ permissions:
 
 jobs:
   check-module:
-    uses: zero1limited/magento2-module-checks/.github/workflows/check_module.yml
+    uses: zero1limited/magento2-module-checks/.github/workflows/check_module.yml@master
+    permissions:
+      contents: read
     secrets: inherit
