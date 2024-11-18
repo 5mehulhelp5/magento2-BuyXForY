@@ -1,7 +1,10 @@
 name: Check Description
+
 on:
   workflow_dispatch:
-  
+  workflow_run:
+  workflow_call:
+
 jobs:
   build:
     runs-on: ubuntu-latest
