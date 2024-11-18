@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  checkout:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,6 +20,7 @@ jobs:
   validate-composer-json:
     name: "Validate composer.json"
     runs-on: ubuntu-latest
+    needs: [checkout]
     steps:
       - name: Check
         run: composer validate --strict
@@ -29,12 +30,18 @@ jobs:
   validate-description-composer-json:
     name: "Validate Description in composer.json"
     runs-on: ubuntu-latest
+    needs: [checkout]
     steps:
       - name: Check
         run: |
           echo "yeah?"
+          echo "======================"
           ls
+          echo "======================"
+          pwd
+          echo "======================"
           php -r '$composerJson = json_decode(file_get_contents("composer.json"), true);  if(!array_key_exists("description", $composerJson) || strlen($composerJson["description"]) < 5){ echo "description in composer.json missing or too short".PHP_EOL;  exit(1); }else{ exit(0); }'
+          echo "======================"
 
   all-valid:
     name: "All Valid"
