@@ -16,10 +16,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+  validate-composer-json:
+    name: "Validate composer.json"
+    runs-on: ubuntu-latest
+    steps:
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
       # - name: Install dependencies
       #   run: composer install --prefer-dist --no-progress
+      - name: Foo
+        run: |
+          echo "yeah?"
+
+  validate-description-composer-json:
+    name: "Validate Description in composer.json"
+    runs-on: ubuntu-latest
+    steps:
       - name: Foo
         run: |
           echo "yeah?"
