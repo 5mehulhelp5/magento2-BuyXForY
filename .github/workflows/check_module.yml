@@ -1,0 +1,16 @@
+name: Check Module
+
+on:
+  workflow_call:
+  push:
+    branches: [ "master" ] 
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  check-module:
+    uses: zero1limited/magento2-module-checks:@master
+    secrets: inherit
