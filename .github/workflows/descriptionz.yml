@@ -51,6 +51,16 @@ jobs:
           echo "todo - check there isn't a dependency for magento/framework"
           exit 1;
 
+  validate-packagevendor-composer-json:
+    name: "Validate package vendor in composer.json"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check
+        run: |
+          echo "todo - check package name is zero1/* not zero1limited/*"
+          exit 1;
+
   phpstan:
     name: "PHP Stan"
     runs-on: ubuntu-latest
@@ -79,6 +89,7 @@ jobs:
       - validate-description-composer-json
       - validate-magento-dependency-composer-json
       - validate-php-dependency-composer-json
+      - validate-packagevendor-composer-json
       - phpstan
       - phpcs
     steps:
